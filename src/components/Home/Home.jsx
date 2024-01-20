@@ -5,6 +5,8 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import moonImage from "../../images/moon.jpg";
 import venusImage from "../../images/venus.jpg";
 import spaceImage from "../../images/space.jpg";
+import { Typography } from "@mui/material";
+import TimeLine from "../Timeline/Timeline";
 
 const Home = (props) => {
 
@@ -100,6 +102,13 @@ const Home = (props) => {
   return (
     <div className="home">
         <canvas className="homeCanvas"> </canvas>
+
+        <div className="homeContainer">
+          <Typography variant="h3">
+            TIMELINE
+          </Typography>
+          <TimeLine timeline={[1,2,3,4,5]} />
+        </div>
     </div>
   )
 };
