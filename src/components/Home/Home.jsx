@@ -4,6 +4,7 @@ import * as THREE from "three";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import moonImage from "../../images/moon.jpg";
 import venusImage from "../../images/venus.jpg";
+import spaceImage from "../../images/space.jpg";
 
 const Home = (props) => {
 
@@ -13,6 +14,7 @@ const Home = (props) => {
     const textureLoader = new THREE.TextureLoader();
     const moonTexture = textureLoader.load(moonImage);
     const venusTexture = textureLoader.load(venusImage);
+    const spaceTexture = textureLoader.load(spaceImage);
 
     const scene = new THREE.Scene();
     
@@ -48,13 +50,45 @@ const Home = (props) => {
     scene.add(venus);
     scene.add(pointLight);
     scene.add(pointLight2);
+    scene.background = spaceTexture;
     // scene.add(lightHelper);
+
+    const constSpeed = 0.01;
+    window.addEventListener("mousemove", (e) => {
+      if (e.clientX <= window.innerWidth / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y += constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y += constSpeed;
+      }
+
+      if (e.clientX > window.innerWidth / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y -= constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y -= constSpeed;
+      }
+
+      if (e.clientY > window.innerHeight / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y += constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y += constSpeed;
+      }
+
+      if (e.clientY <= window.innerHeight / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y -= constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y -= constSpeed;
+      }
+    });
 
 
     const animate = () => {
       requestAnimationFrame(animate);
-      moon.rotation.y+=.01;
-      venus.rotation.y+=0.01;
+      moon.rotation.y+=0.01;
+      venus.rotation.y+=0.001;
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.render(scene,camera);
     }
