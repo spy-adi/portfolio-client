@@ -18,3 +18,94 @@
     color: rgba(22,20,30,0.904);
     padding: 4vmax;
 }
+
+.homeSkills{
+    position: relative;
+    height: 1500px;
+    padding: 200px;
+    box-sizing: border-box;
+    background-color: hsl(219, 48%, 8%);
+    perspective: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-x: hidden;
+    transform: translateY(-200px);
+    margin-bottom: -200px;
+}
+
+.homeSkills > h3 {
+    text-align: center;
+    color: white;
+    margin-bottom: 4vmax;
+    font-size: 4vmax;
+}
+
+.homeCubeSkills{
+    width: 200px;
+    height: 200px;
+    animation: cubeRotation 15s linear infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.homeCubeSkillsFaces{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgb(0,0,0);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0.7;
+}
+
+.homeCubeSkillsFaces > img {
+    width: inherit;
+    height: inherit;
+}
+
+.homeCubeSkillsFace1{
+    transform: rotateY(180deg) translate3d(0,0,150px);
+}
+
+.homeCubeSkillsFace2{
+    transform: rotateY(180deg) translate3d(0,0,150px);
+}
+
+.homeCubeSkillsFace3{
+    transform: rotateY(-90deg) translate3d(0,0,150px);
+}
+
+.homeCubeSkillsFace4{
+    transform: rotateY(90deg) translate3d(0,0,150px);
+}
+
+.homeCubeSkillsFace5{
+    transform: rotateX(90deg) translate3d(0,0,150px);
+}
+
+.homeCubeSkillsFace6{
+    transform: rotateX(-90deg) translate3d(0,0,150px);
+}
+
+.cubeShadow{
+    width: 300px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.171);
+    border-radius: 50%;
+    animation: cubeShadow 15s ease-in-out infinite alternate;
+    filter: blur(3px);
+}
+
+@keyframes cubeRotation {
+    to{
+        transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
+    }
+}
+
+@keyframes cubeShadow {
+    to{
+        transform: scale(1.2) translateY(-10px);
+    }
+}

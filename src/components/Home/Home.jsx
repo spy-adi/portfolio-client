@@ -7,6 +7,17 @@ import venusImage from "../../images/venus.jpg";
 import spaceImage from "../../images/space.jpg";
 import { Typography } from "@mui/material";
 import TimeLine from "../Timeline/Timeline";
+import {
+  SiCplusplus,
+  SiReact,
+  SiJavascript,
+  SiMongodb,
+  SiNodedotjs,
+  SiExpress,
+  SiCss3,
+  SiHtml5,
+  SiThreedotjs,
+} from "react-icons/si";
 
 const Home = (props) => {
 
@@ -56,29 +67,39 @@ const Home = (props) => {
     // scene.add(lightHelper);
 
     const constSpeed = 0.01;
+
+    // Add a mousemove event listener to the window
     window.addEventListener("mousemove", (e) => {
+      // Check if the mouse is on the left half of the window
       if (e.clientX <= window.innerWidth / 2) {
+        // Rotate moon and venus in one direction
         moon.rotation.x -= constSpeed;
         moon.rotation.y += constSpeed;
         venus.rotation.x -= constSpeed;
         venus.rotation.y += constSpeed;
       }
 
+      // Check if the mouse is on the right half of the window
       if (e.clientX > window.innerWidth / 2) {
+        // Rotate moon and venus in the opposite direction
         moon.rotation.x -= constSpeed;
         moon.rotation.y -= constSpeed;
         venus.rotation.x -= constSpeed;
         venus.rotation.y -= constSpeed;
       }
 
+      // Check if the mouse is below the vertical center of the window
       if (e.clientY > window.innerHeight / 2) {
+        // Rotate moon and venus in one direction
         moon.rotation.x -= constSpeed;
         moon.rotation.y += constSpeed;
         venus.rotation.x -= constSpeed;
         venus.rotation.y += constSpeed;
       }
 
+      // Check if the mouse is above the vertical center of the window
       if (e.clientY <= window.innerHeight / 2) {
+        // Rotate moon and venus in the opposite direction
         moon.rotation.x -= constSpeed;
         moon.rotation.y -= constSpeed;
         venus.rotation.x -= constSpeed;
@@ -108,6 +129,74 @@ const Home = (props) => {
             TIMELINE
           </Typography>
           <TimeLine timeline={[1,2,3,4,5]} />
+        </div>
+
+        <div className="homeSkills">
+          
+          <Typography variant="h3">
+            Skills
+          </Typography>
+
+          <div className="homeCubeSkills">
+
+            <div className="homeCubeSkillsFaces homeCubeSkillsFace1">
+              <img 
+               src="https://i.imgur.com/eaoBRfx_d.webp?maxwidth=760&fidelity=grand"
+               alt="face1"
+               />
+            </div>
+
+            <div className="homeCubeSkillsFaces homeCubeSkillsFace2">
+              <img 
+               src="https://i.imgur.com/idZ69B8.png"
+               alt="face2"
+               />
+            </div>
+            
+            <div className="homeCubeSkillsFaces homeCubeSkillsFace3">
+              <img 
+               src="https://i.imgur.com/0GZoQcjb.jpg"
+               alt="face3"
+               />
+            </div>
+            
+            <div className="homeCubeSkillsFaces homeCubeSkillsFace4">
+              <img 
+               src="https://imgur.com/gallery/KQwpH73"
+               alt="face4"
+               />
+            </div>
+            
+            <div className="homeCubeSkillsFaces homeCubeSkillsFace5">
+              <img 
+               src="https://i.imgur.com/NalrFG1b.jpg"
+               alt="face5"
+               />
+            </div>
+            
+            <div className="homeCubeSkillsFaces homeCubeSkillsFace6">
+              <img 
+               src="https://i.imgur.com/EYDYOV1b.jpg"
+               alt="face6"
+               />
+            </div>
+
+          </div>
+
+          <div className="cubeShadow"></div>
+
+          <div className="homeSkillBox">
+            <SiCplusplus />
+            <SiReact />
+            <SiJavascript />
+            <SiMongodb />
+            <SiNodedotjs />
+            <SiExpress />
+            <SiCss3 />
+            <SiHtml5 />
+            <SiThreedotjs />
+          </div>
+
         </div>
     </div>
   )
