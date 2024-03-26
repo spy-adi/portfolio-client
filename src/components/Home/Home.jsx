@@ -198,6 +198,17 @@ const Home = (props) => {
           </div>
 
         </div>
+
+        
+
+        <div className="homeYoutube">
+            <Typography variant="h3">
+                Youtube Videos
+            </Typography>
+            <div className="homeYoutubeWrapper">
+              
+            </div>
+          </div>
     </div>
   )
 };
